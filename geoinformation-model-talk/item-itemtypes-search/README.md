@@ -77,11 +77,11 @@ In the following image you can see those parts:
 [![Feature Service](./imgs/item-layout-parts.png)](https://www.arcgis.com/home/item.html?id=475ebb5779fd4a3c9a83e139bf77ae04)
 
 * **Item type**: this display the item type that was loaded. Some of the common types are: 
-    * Feature layer (<img src="https://www.arcgis.com/home/js/arcgisonline/img/item-types/features16.svg" style="width:16px" />)
-    * Imagery layer (<img src="https://www.arcgis.com/home/js/arcgisonline/img/item-types/imagery16.svg" style="width:16px" />)
-    * Dashboards (<img src="https://www.arcgis.com/home/js/arcgisonline/img/item-types/dashboard16.svg" style="width:16px" />)
-    * Configurable apps (<img src="https://www.arcgis.com/home/js/arcgisonline/img/item-types/apps16.svg" style="width:16px" />)
-    * Vector tile layer (<img src="https://www.arcgis.com/home/js/arcgisonline/img/item-types/maptiles16.svg" style="width:16px" />)
+    * Feature layer ([![Feature Layer icon](./imgs/layerFeatures16.png)](https://www.arcgis.com/home/js/arcgisonline/img/item-types/features16.svg))
+    * Imagery layer ([![Imagery layer icon](./imgs/layerImagery16.png)](https://www.arcgis.com/home/js/arcgisonline/img/item-types/imagery16.svg))
+    * Dashboards ([![Dashboards icon](./imgs/dashboard16.png)](https://www.arcgis.com/home/js/arcgisonline/img/item-types/dashboard16.svg))
+    * Configurable apps ([![Configurable apps icon](./imgs/apps16.png)](https://www.arcgis.com/home/js/arcgisonline/img/item-types/apps16.svg))
+    * Vector tile layer ([![Vector tile layer icon](./imgs/maptiles16.png)](https://www.arcgis.com/home/js/arcgisonline/img/item-types/maptiles16.svg)) 
     * ... [find more](https://doc.arcgis.com/en/arcgis-online/reference/layers.htm)
 
 * **Sub navigation bar**: based on the item type some features will be enabled as we will see. Been the owner of the item will also unblock some features.
