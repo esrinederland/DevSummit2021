@@ -33,8 +33,8 @@ In case the priority is defined in multiple levels, the first row indicates the 
 |[`bookmarks`](https://developers.arcgis.com/web-map-specification/objects/bookmark/)|Map locations|N|N|[Y](https://geogeeks.maps.arcgis.com/sharing/rest/content/items/2ba230842b164b53acaa05df211c36de/data?f=json)|Y
 |...|...|...|...|...|...
 
-> (1) **Custom apps**:  [client side API/SDK](#), which includes [Web Mapping Applications type](#), Configurable Apps and
-> (2) **View layer definitions** can only be queried by the owner using the [REST API Admin](https://developers.arcgis.com/rest/services-reference/rest-api-admin.htm)
+> (1) **Custom apps**:  [client side API/SDK](#), which includes [Web Mapping Applications type](#) and Configurable Apps.
+> (2) **View layer definitions** can only be queried by the owner using the [REST API Admin](https://developers.arcgis.com/rest/services-reference/rest-api-admin.htm). I couldn't find this property in the documentation.
 
 
 ## Demo
