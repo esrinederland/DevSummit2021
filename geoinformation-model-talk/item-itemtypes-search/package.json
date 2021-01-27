@@ -1,0 +1,11 @@
+{
+  "name": "item-itemtypes-search",
+  "version": "1.0.0",
+  "description": "We will show how the [item and item types](https://developers.arcgis.com/rest/users-groups-and-items/items-and-item-types.htm) works and its implications in  the platform.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <title>Load a basic WebMap | Sample | ArcGIS API for JavaScript 4.18</title>
+
+    <style>
+      html,
+      body,
+      #viewDiv {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+      }
+    </style>
+
+    <link
+      rel="stylesheet"
+      href="https://js.arcgis.com/4.18/esri/themes/light/main.css"
+    />
+
+    <script src="https://js.arcgis.com/4.18/"></script>
+
+    <script>
+
+    /*********************
+        Load Feature Service
+    **********************/
+    require([
+        "esri/Map",
+        "esri/views/MapView",
+        "esri/layers/FeatureLayer"
+      ], function (Map, MapView, FeatureLayer) {
+
+        map = new Map({
+          basemap: "dark-gray"
+        });
+
+        const serviceUrl = 'https://services.arcgis.com/P3ePLMYs2RVChkJx/arcgis/rest/services/ACS_Poverty_by_Age_Boundaries/FeatureServer',
+              povertyLayer = {
+                  'state': `${serviceUrl}/0`,
+                  'county': `${serviceUrl}/1`,
+                  'tract': `${serviceUrl}/2`,
+              };
+
+        featureLayer = new FeatureLayer({
+          url: serviceUrl
+        });
+
+        // copy(featureLayer.fullExtent.toJSON())
+
+        // featureLayer.when(function () {
+        // //   featureLayer.definitionExpression = createDefinitionExpression("");
+        // //   zoomToLayer(featureLayer);
+        // debugger
+        //     view.goTo(featureLayer.fullExtent.toJSON());
+        // });
+
+        // featureLayer.queryExtent().then(function (response) {
+        //     view.goTo(response.extent).catch(function (error) {
+        //       if (error.name != "AbortError") {
+        //         console.error(error);
+        //       }
+        //     });
+
+        view = new MapView({
+          container: "viewDiv",
+          map: map
+        });
+
+        view.when(function(){
+            featureLayer.queryExtent().then(function (response) {
+                console.log(response.extent.toJSON())
+                view.goTo(response.extent).catch(function (error) {
+                if (error.name != "AbortError") {
+                    console.error(error);
+                }
+                });
+            })
+        });
+        map.add(featureLayer);
+
+
+      });
+
+
+
+
+
+
+
+
+      require(["esri/views/MapView", "esri/WebMap"], function (
+        MapView,
+        WebMap
+      ) {
+        // /*********************
+        //     Feature Service
+        // **********************/
+        // var webmap = new WebMap({
+        //   portalItem: {
+        //     // autocasts as new PortalItem()
+        //     id: "f2e9b762544945f390ca4ac3671cfa72"
+        //   }
+        // });
+
+        // var view = new MapView({
+        //   map: webmap,
+        //   container: "viewDiv"
+        // });
+      });
+    </script>
+  </head>
+
+  <body>
+    <div id="viewDiv"></div>
+  </body>
+</html>
