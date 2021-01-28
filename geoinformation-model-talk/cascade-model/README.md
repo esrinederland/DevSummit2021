@@ -67,7 +67,7 @@ In case the priority is defined in multiple levels, the first row indicates the 
 
 ### Load a layer with it default properties
 
-[The load layer demo](.feature-layer.html) shows how to load layer properties using the JavaScript API we just need to add the URL of the layer on the `FeatureLayer` class. 
+[The load layer demo](feature-layer.html) shows how to load layer properties using the JavaScript API we just need to add the URL of the layer on the `FeatureLayer` class. 
 
 ```js
 const featureLayer = new FeatureLayer({
@@ -102,7 +102,7 @@ gotoExtent();
 
 ### Overwrite previous layer properties with Portal Item properties
 
-[The load feature layer item demo](.feature-layer-item.html) shows how [the item properties](https://www.arcgis.com/sharing/rest/content/items/195e039565ee42fbbefbcc2708bc7e26?f=json) of [a Portal Item](https://www.arcgis.com/home/item.html?id=195e039565ee42fbbefbcc2708bc7e26) which references/point the [previous feature service](https://services.arcgis.com/P3ePLMYs2RVChkJx/arcgis/rest/services/ACS_Poverty_by_Age_Boundaries/FeatureServer) will overwrite the properties **on each layer** in the spec of feature service ([0](https://services.arcgis.com/P3ePLMYs2RVChkJx/arcgis/rest/services/ACS_Poverty_by_Age_Boundaries/FeatureServer/0?f=json), [1](https://services.arcgis.com/P3ePLMYs2RVChkJx/arcgis/rest/services/ACS_Poverty_by_Age_Boundaries/FeatureServer/1?f=json), [2](https://services.arcgis.com/P3ePLMYs2RVChkJx/arcgis/rest/services/ACS_Poverty_by_Age_Boundaries/FeatureServer/3?f=json)).
+[The load feature layer item demo](feature-layer-item.html) shows how [the item properties](https://www.arcgis.com/sharing/rest/content/items/195e039565ee42fbbefbcc2708bc7e26?f=json) of [a Portal Item](https://www.arcgis.com/home/item.html?id=195e039565ee42fbbefbcc2708bc7e26) which references/point the [previous feature service](https://services.arcgis.com/P3ePLMYs2RVChkJx/arcgis/rest/services/ACS_Poverty_by_Age_Boundaries/FeatureServer) will overwrite the properties **on each layer** in the spec of feature service ([0](https://services.arcgis.com/P3ePLMYs2RVChkJx/arcgis/rest/services/ACS_Poverty_by_Age_Boundaries/FeatureServer/0?f=json), [1](https://services.arcgis.com/P3ePLMYs2RVChkJx/arcgis/rest/services/ACS_Poverty_by_Age_Boundaries/FeatureServer/1?f=json), [2](https://services.arcgis.com/P3ePLMYs2RVChkJx/arcgis/rest/services/ACS_Poverty_by_Age_Boundaries/FeatureServer/3?f=json)).
 
 The code looks like this:
 
@@ -134,7 +134,7 @@ new PortalItem({
 
 ### Overwrite previous Portal Item with web map properties
 
-[The load web maps item demo](.webmap-item.html) shows how the [web map item properties](https://www.arcgis.com/sharing/rest/content/items/c1354b360f3d4d709220f134f10b744a/data?f=json) which references the previous [Portal Item](https://www.arcgis.com/home/item.html?id=195e039565ee42fbbefbcc2708bc7e26) will overwrite [its properties](https://www.arcgis.com/sharing/rest/content/items/195e039565ee42fbbefbcc2708bc7e26?f=json).
+[The load web maps item demo](webmap-item.html) shows how the [web map item properties](https://www.arcgis.com/sharing/rest/content/items/c1354b360f3d4d709220f134f10b744a/data?f=json) which references the previous [Portal Item](https://www.arcgis.com/home/item.html?id=195e039565ee42fbbefbcc2708bc7e26) will overwrite [its properties](https://www.arcgis.com/sharing/rest/content/items/195e039565ee42fbbefbcc2708bc7e26?f=json).
 
 ```js
 const webmap = new WebMap({
@@ -151,7 +151,7 @@ const view = new MapView({
 
 ### Overwrite previous web map properties with custom code
 
-[The custom app starting from a webmap demo](.custom-app.html) shows how to overwrite the [web map properties](https://www.arcgis.com/sharing/rest/content/items/c1354b360f3d4d709220f134f10b744a/data?f=json) using the properties and methods available in the JavaScript API.
+[The custom app starting from a webmap demo](custom-app.html) shows how to overwrite the [web map properties](https://www.arcgis.com/sharing/rest/content/items/c1354b360f3d4d709220f134f10b744a/data?f=json) using the properties and methods available in the JavaScript API.
 
 The following sample code shows how to overwrite the extent of the view using the [`extent` property](https://developers.arcgis.com/javascript/latest/api-reference/esri-views-MapView.html#properties-summary) in the [`MapView` class](https://developers.arcgis.com/javascript/latest/api-reference/esri-views-MapView.html) and also de [`basemap` property](https://developers.arcgis.com/javascript/latest/api-reference/esri-Map.html#properties-summary) in the [`Map` class](https://developers.arcgis.com/javascript/latest/api-reference/esri-Map.html):
 
