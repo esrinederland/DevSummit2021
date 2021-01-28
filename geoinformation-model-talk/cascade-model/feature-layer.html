@@ -1,77 +1,81 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no"
     />
-    <title>Load a basic WebMap | Sample | ArcGIS API for JavaScript 4.18</title>
+    <title>Feature Layer - Cascade model</title>
 
     <style>
-      html,
-      body,
-      #viewDiv {
-        padding: 0;
-        margin: 0;
-        height: 100%;
-        width: 100%;
-      }
+        html,
+        body,
+        #viewDiv {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            width: 100%;
+        }
     </style>
 
-    <link
-      rel="stylesheet"
-      href="https://js.arcgis.com/4.18/esri/themes/light/main.css"
+    <link rel="stylesheet" href="https://js.arcgis.com/4.18/esri/themes/light/main.css"
     />
 
     <script src="https://js.arcgis.com/4.18/"></script>
-    <script src="./utils.js"></script>
 
     <script>
 
-    require([
-        "esri/Map",
-        "esri/views/MapView",
-        "esri/layers/FeatureLayer"
-      ], function (Map, MapView, FeatureLayer) {
+        require([
+            "esri/Map",
+            "esri/views/MapView",
+            "esri/layers/FeatureLayer"
+        ], function (Map, MapView, FeatureLayer) {
 
-        map = new Map({
-          basemap: "dark-gray"
+            map = new Map({
+                basemap: "dark-gray"
+            });
+
+            const serviceUrl = 'https://services.arcgis.com/P3ePLMYs2RVChkJx/arcgis/rest/services/ACS_Poverty_by_Age_Boundaries/FeatureServer',
+                  povertyLayers = {
+                      'state': `${serviceUrl}/0`,
+                      'county': `${serviceUrl}/1`,
+                      'tract': `${serviceUrl}/2`,
+                  };
+
+            // Loading drawingInfo from a specific layer
+            // the visibility is also recovered from the service spec
+            featureLayer = new FeatureLayer({
+                url: povertyLayers['state']
+            });
+
+            // If the layer id is not specified then the first layer
+            // will be loaded
+            // featureLayer = new FeatureLayer({
+                //   url: serviceUrl
+            // });
+
+            map.add(featureLayer);
+
+            view = new MapView({
+                container: "viewDiv",
+                map: map
+            });
+
+            // Recover layer extent from the expect
+            view.when(function(){
+                featureLayer.queryExtent().then(function (response) {
+                    console.log(response.extent.toJSON())
+                    view.goTo(response.extent).catch(function (error) {
+                    if (error.name != "AbortError") {
+                        console.error(error);
+                    }
+                    });
+                })
+            });
         });
-
-        const serviceUrl = 'https://services.arcgis.com/P3ePLMYs2RVChkJx/arcgis/rest/services/ACS_Poverty_by_Age_Boundaries/FeatureServer',
-              povertyLayer = {
-                  'state': `${serviceUrl}/0`,
-                  'county': `${serviceUrl}/1`,
-                  'tract': `${serviceUrl}/2`,
-              };
-
-        // Loading drawingInfo from a specific layer
-        // the visibility is also recovered from the service spec
-        featureLayer = new FeatureLayer({
-          url: povertyLayer['state']
-        });
-
-        // If the layer id is not specified then the first layer
-        // will be loaded
-        // featureLayer = new FeatureLayer({
-        //   url: serviceUrl
-        // });
-
-        map.add(featureLayer);
-
-        view = new MapView({
-          container: "viewDiv",
-          map: map
-        });
-
-        // Recover layer extent from the expect
-        view.when(goToLayerExtent);
-      });
     </script>
-  </head>
+</head>
 
-  <body>
+<body>
     <div id="viewDiv"></div>
-  </body>
+</body>
 </html>

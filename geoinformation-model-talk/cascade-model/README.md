@@ -6,7 +6,10 @@
 
 And also like in CSS, **depending on where the properties are defined, they will be overwritten or not**.
 
-A particularity of the GeoInformation model is that **these properties not only apply to rendering/styling**, but also to other properties as we will see below. Another difference is that **not all properties can be specified at all levels**.
+Particularities of the GeoInformation model:
+
+* Not all properties are directly related to styling (e.g. `bookmarks`)
+* Not all properties can be specified at all levels
 
 ## Properties and priorities
 
@@ -20,7 +23,7 @@ In case the priority is defined in multiple levels, the first row indicates the 
 |---|---|---|---|--|--|
 |Priority||1|2|3|4|
 |[`drawingInfo`](https://developers.arcgis.com/web-map-specification/objects/drawingInfo/)|Simbology|[Y](https://services.arcgis.com/P3ePLMYs2RVChkJx/arcgis/rest/services/ACS_Poverty_by_Age_Boundaries/FeatureServer/0?f=json)|[Y](https://www.arcgis.com/sharing/rest/content/items/195e039565ee42fbbefbcc2708bc7e26?f=json)|[Y](https://geogeeks.maps.arcgis.com/sharing/rest/content/items/2ba230842b164b53acaa05df211c36de?f=json)|Y
-|[`extent`](https://developers.arcgis.com/web-map-specification/objects/extent/)|Map extension|[Y](https://services.arcgis.com/P3ePLMYs2RVChkJx/arcgis/rest/services/ACS_Poverty_by_Age_Boundaries/FeatureServer/0?f=json)|[Y](https://www.arcgis.com/sharing/rest/content/items/195e039565ee42fbbefbcc2708bc7e26?f=json)|[Y](https://geogeeks.maps.arcgis.com/sharing/rest/content/items/2ba230842b164b53acaa05df211c36de?f=json)|Y
+|[`extent`](https://developers.arcgis.com/web-map-specification/objects/extent/)|Map extension|[Y](https://services.arcgis.com/P3ePLMYs2RVChkJx/arcgis/rest/services/ACS_Poverty_by_Age_Boundaries/FeatureServer/0?f=json)|[Y](https://www.arcgis.com/sharing/rest/content/items/195e039565ee42fbbefbcc2708bc7e26?f=json)<sup>2</sup>|[Y](https://geogeeks.maps.arcgis.com/sharing/rest/content/items/2ba230842b164b53acaa05df211c36de?f=json)|Y
 |[`labelingInfo`](https://developers.arcgis.com/web-map-specification/objects/labelingInfo/)|Geometry labels|[Y](https://services.arcgis.com/P3ePLMYs2RVChkJx/arcgis/rest/services/ACS_Poverty_by_Age_Boundaries/FeatureServer/0?f=json)|[Y](https://www.arcgis.com/sharing/rest/content/items/195e039565ee42fbbefbcc2708bc7e26/data?f=json)|[Y](https://geogeeks.maps.arcgis.com/sharing/rest/content/items/2ba230842b164b53acaa05df211c36de/data?f=json)|Y
 |[`minScale`](https://developers.arcgis.com/web-map-specification/objects/layer/) and [`maxScale`](https://developers.arcgis.com/web-map-specification/objects/layer/)|Visibility range|[Y](https://services.arcgis.com/P3ePLMYs2RVChkJx/arcgis/rest/services/ACS_Poverty_by_Age_Boundaries/FeatureServer/0?f=json)|N|[Y](https://geogeeks.maps.arcgis.com/sharing/rest/content/items/2ba230842b164b53acaa05df211c36de/data?f=json)|Y|Y
 |[`defaultVisibility`](https://developers.arcgis.com/web-map-specification/objects/layer/) or [`visibility`](https://developers.arcgis.com/web-map-specification/objects/featureLayer/)|True / false|[Y](https://services.arcgis.com/P3ePLMYs2RVChkJx/arcgis/rest/services/ACS_Poverty_by_Age_Boundaries/FeatureServer/0?f=json)|N|[Y](https://geogeeks.maps.arcgis.com/sharing/rest/content/items/2ba230842b164b53acaa05df211c36de/data?f=json)|Y
@@ -33,8 +36,11 @@ In case the priority is defined in multiple levels, the first row indicates the 
 |[`bookmarks`](https://developers.arcgis.com/web-map-specification/objects/bookmark/)|Map locations|N|N|[Y](https://geogeeks.maps.arcgis.com/sharing/rest/content/items/2ba230842b164b53acaa05df211c36de/data?f=json)|Y
 |...|...|...|...|...|...
 
-> (1) **Custom apps**:  [client side API/SDK](#), which includes [Web Mapping Applications type](#) and Configurable Apps.
-> (2) **View layer definitions** can only be queried by the owner using the [REST API Admin](https://developers.arcgis.com/rest/services-reference/rest-api-admin.htm). I couldn't find this property in the documentation.
+> (1) **Custom apps**:  [client side API/SDK](#), which includes [Web Mapping Applications type](#) and Configurable Apps.<br>
+> (2) The extent saved in the item metadata is used to make the item searchable by location, not to focus the map view on this as an initial extent.<br>
+> (3) **View layer definitions** can only be queried by the owner using the [REST API Admin](https://developers.arcgis.com/rest/services-reference/rest-api-admin.htm). I couldn't find this property in the documentation.
+
+**Important**: 
 
 
 ## Demo

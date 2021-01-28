@@ -25,12 +25,11 @@
     <script>
 
         require([
-            "esri/Map",
-            "esri/views/MapView",
-            "esri/layers/FeatureLayer",
-            "esri/portal/PortalItem",
-            // "esri/renderers/Renderer"
-        ], function (Map, MapView, FeatureLayer, PortalItem/*, Renderer*/) {
+        "esri/Map",
+        "esri/views/MapView",
+        "esri/layers/Layer",
+        "esri/portal/PortalItem"
+        ], function (Map, MapView, Layer, PortalItem) {
 
             map = new Map({
                 basemap: "gray"
@@ -41,65 +40,31 @@
                 map: map
             });
 
-            let loadFeatureLayerItem = function(itemID, view){
-
-                const itemsEP = 'https://www.arcgis.com/sharing/rest/content/items';
-                const item = new PortalItem({
-                    id: itemID,
-                    portal:{
-                        url: `${itemsEP}/${itemID}`
-                    }
-                });
-
-                const aRender = async function (layer, data) {
-                    const itemData = await getDataPromise;
-
-                    const itemLayerData = itemData.layers[layer.id];
-                    // console.log("itemLayerData=", itemLayerData)
-                    properties = {
-                        url: `${data.item.url}/${layer.id}`,
-                        ...itemLayerData.layerDefinition,
-                        popupTemplate: itemLayerData.popupInfo,
-                        // visible: itemLayerData.layerDefinition.defaultVisibility,
-                    };
-                    // const dInfo = itemLayerData.layerDefinition.drawingInfo ?? null;
-                    // if( dInfo && dInfo.renderer){
-                    //     debugger
-                    //     properties.renderer = new Renderer(dInfo.renderer)
-
-                    // }
-                    // console.log("properties=", properties)
-                    const featureLayer = new FeatureLayer(properties);
-                    map.add(featureLayer);
-                };
-
-                const renderFL = function(render, data){
-                    aRender(render, data)
-                }
-
-                const getDataPromise = item.fetchData()
-                    .then(data => data);
-                item.load()
-                    .then(function(item){
-
-                        view.goTo(item.extent);
-                        fetch(`${item.url}?f=json`)
-                            .then(response =>  ({
-                                    response: response.json(),
-                                    item
-                                }
-                            ))
-                            .then(data => {
-                                data.response.then(serviceDefinition => {
-                                    serviceDefinition.layers.forEach(layer => renderFL(layer, data));
-                                })
-                            });
-                    });
-            };
-
             const itemID = "195e039565ee42fbbefbcc2708bc7e26";
             console.log(`Loading Feature Layer Item Type\nDetails page: https://www.arcgis.com/home/item.html?id=${itemID}`);
-            loadFeatureLayerItem(itemID, view);
+
+            Layer.fromPortalItem({
+                portalItem: {
+                    id: itemID
+                }
+            })
+            .then(layer => {
+                map.add(layer);
+            })
+            .catch(error => {
+                console.log("Layer failed to load: ", error);
+            });
+
+            // The extent saved in the item metadata is used
+            // to make the item searchable by location, not
+            // as an initial extent, but we could also use it
+            new PortalItem({
+                id: itemID
+            })
+            .load()
+            .then(function(item){
+                view.goTo(item.extent);
+            });
         });
     </script>
 </head>
