@@ -9,23 +9,33 @@
     <script src="https://js.arcgis.com/4.18/"></script>
 
     <script>
-    require([
-        "esri/views/MapView",
-        "esri/WebMap"
-      ], function (MapView, WebMap) {
+        require([
+            "esri/views/MapView",
+            "esri/WebMap"
+          ], function (MapView, WebMap) {
 
-        webmap = new WebMap({
-          portalItem: {
-            id: "2ba230842b164b53acaa05df211c36de"
-          }
-        });
+            webmap = new WebMap({
+              portalItem: {
+                id: "c1354b360f3d4d709220f134f10b744a"
+              }
+            });
 
-        var view = new MapView({
-          map: webmap,
-          container: "viewDiv"
-        });
-      });
-    </script>
+            view = new MapView({
+              map: webmap,
+              container: "viewDiv",
+              extent: {
+                "spatialReference": {
+                    "latestWkid": 3857,
+                    "wkid": 102100
+                },
+                "xmin": -8244513.280543869,
+                "ymin": 4976904.837374379,
+                "xmax": -8224945.401302891,
+                "ymax": 4980736.243417169
+              }
+            });
+          });
+        </script>
   </head>
 
   <body>

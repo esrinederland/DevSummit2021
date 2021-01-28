@@ -35,21 +35,21 @@ In case the priority is defined in multiple levels, the first row indicates the 
 
 > **Warning**: the following table is not intended to be a complete list of properties used by the GeoInformation model but to serve as an example to understand how the cascade model works.
 
-|Properties / Spec.|Description|[Feature Service](https://services.arcgis.com/P3ePLMYs2RVChkJx/arcgis/rest/services/ACS_Poverty_by_Age_Boundaries/FeatureServer)|[Feature Layer Item type](https://www.arcgis.com/home/item.html?id=195e039565ee42fbbefbcc2708bc7e26#visualize)<sup>1</sup>|[Web Map item type](https://geogeeks.maps.arcgis.com/home/webmap/viewer.html?webmap=2ba230842b164b53acaa05df211c36de)|Custom apps<sup>2</sup>
+|Properties / Spec.|Description|[Feature Service](https://services.arcgis.com/P3ePLMYs2RVChkJx/arcgis/rest/services/ACS_Poverty_by_Age_Boundaries/FeatureServer)|[Feature Layer Item type](https://www.arcgis.com/home/item.html?id=195e039565ee42fbbefbcc2708bc7e26#visualize)<sup>1</sup>|[Web Map item type](https://www.arcgis.com/home/webmap/viewer.html?webmap=c1354b360f3d4d709220f134f10b744a)|Custom apps<sup>2</sup>
 |---|---|---|---|--|--|
 |Priority||1|2|3|4|
-|[`drawingInfo`](https://developers.arcgis.com/web-map-specification/objects/drawingInfo/)|Simbology|[Y](https://services.arcgis.com/P3ePLMYs2RVChkJx/arcgis/rest/services/ACS_Poverty_by_Age_Boundaries/FeatureServer/0?f=json)|[Y](https://www.arcgis.com/sharing/rest/content/items/195e039565ee42fbbefbcc2708bc7e26?f=json)|[Y](https://geogeeks.maps.arcgis.com/sharing/rest/content/items/2ba230842b164b53acaa05df211c36de?f=json)|Y
-|[`extent`](https://developers.arcgis.com/web-map-specification/objects/extent/)|Map extension|[Y](https://services.arcgis.com/P3ePLMYs2RVChkJx/arcgis/rest/services/ACS_Poverty_by_Age_Boundaries/FeatureServer/0?f=json)<sup>3</sup>|[Y](https://www.arcgis.com/sharing/rest/content/items/195e039565ee42fbbefbcc2708bc7e26?f=json)<sup>4</sup>|[Y](https://geogeeks.maps.arcgis.com/sharing/rest/content/items/2ba230842b164b53acaa05df211c36de?f=json)|Y
-|[`labelingInfo`](https://developers.arcgis.com/web-map-specification/objects/labelingInfo/)|Geometry labels|[Y](https://services.arcgis.com/P3ePLMYs2RVChkJx/arcgis/rest/services/ACS_Poverty_by_Age_Boundaries/FeatureServer/0?f=json)|[Y](https://www.arcgis.com/sharing/rest/content/items/195e039565ee42fbbefbcc2708bc7e26/data?f=json)|[Y](https://geogeeks.maps.arcgis.com/sharing/rest/content/items/2ba230842b164b53acaa05df211c36de/data?f=json)|Y
-|[`minScale`](https://developers.arcgis.com/web-map-specification/objects/layer/) and [`maxScale`](https://developers.arcgis.com/web-map-specification/objects/layer/)|Visibility range|[Y](https://services.arcgis.com/P3ePLMYs2RVChkJx/arcgis/rest/services/ACS_Poverty_by_Age_Boundaries/FeatureServer/0?f=json)|N|[Y](https://geogeeks.maps.arcgis.com/sharing/rest/content/items/2ba230842b164b53acaa05df211c36de/data?f=json)|Y|Y
-|[`defaultVisibility`](https://developers.arcgis.com/web-map-specification/objects/layer/) or [`visibility`](https://developers.arcgis.com/web-map-specification/objects/featureLayer/)|True / false|[Y](https://services.arcgis.com/P3ePLMYs2RVChkJx/arcgis/rest/services/ACS_Poverty_by_Age_Boundaries/FeatureServer/0?f=json)|N|[Y](https://geogeeks.maps.arcgis.com/sharing/rest/content/items/2ba230842b164b53acaa05df211c36de/data?f=json)|Y
+|[`drawingInfo`](https://developers.arcgis.com/web-map-specification/objects/drawingInfo/)|Simbology|[Y](https://services.arcgis.com/P3ePLMYs2RVChkJx/arcgis/rest/services/ACS_Poverty_by_Age_Boundaries/FeatureServer/0?f=json)|[Y](https://www.arcgis.com/sharing/rest/content/items/195e039565ee42fbbefbcc2708bc7e26?f=json)|[Y](https://www.arcgis.com/sharing/rest/content/items/c1354b360f3d4d709220f134f10b744a?f=json)|Y
+|[`extent`](https://developers.arcgis.com/web-map-specification/objects/extent/)|Map extension|[Y](https://services.arcgis.com/P3ePLMYs2RVChkJx/arcgis/rest/services/ACS_Poverty_by_Age_Boundaries/FeatureServer/0?f=json)<sup>3</sup>|[Y](https://www.arcgis.com/sharing/rest/content/items/195e039565ee42fbbefbcc2708bc7e26?f=json)<sup>4</sup>|[Y](https://www.arcgis.com/sharing/rest/content/items/c1354b360f3d4d709220f134f10b744a?f=json)|Y
+|[`labelingInfo`](https://developers.arcgis.com/web-map-specification/objects/labelingInfo/)|Geometry labels|[Y](https://services.arcgis.com/P3ePLMYs2RVChkJx/arcgis/rest/services/ACS_Poverty_by_Age_Boundaries/FeatureServer/0?f=json)|[Y](https://www.arcgis.com/sharing/rest/content/items/195e039565ee42fbbefbcc2708bc7e26/data?f=json)|[Y](https://www.arcgis.com/sharing/rest/content/items/c1354b360f3d4d709220f134f10b744a/data?f=json)|Y
+|[`minScale`](https://developers.arcgis.com/web-map-specification/objects/layer/) and [`maxScale`](https://developers.arcgis.com/web-map-specification/objects/layer/)|Visibility range|[Y](https://services.arcgis.com/P3ePLMYs2RVChkJx/arcgis/rest/services/ACS_Poverty_by_Age_Boundaries/FeatureServer/0?f=json)|N|[Y](https://www.arcgis.com/sharing/rest/content/items/c1354b360f3d4d709220f134f10b744a/data?f=json)|Y|Y
+|[`defaultVisibility`](https://developers.arcgis.com/web-map-specification/objects/layer/) or [`visibility`](https://developers.arcgis.com/web-map-specification/objects/featureLayer/)|True / false|[Y](https://services.arcgis.com/P3ePLMYs2RVChkJx/arcgis/rest/services/ACS_Poverty_by_Age_Boundaries/FeatureServer/0?f=json)|N|[Y](https://www.arcgis.com/sharing/rest/content/items/c1354b360f3d4d709220f134f10b744a/data?f=json)|Y
 |`viewLayerDefinition`|View layers filter|Y<sup>5</sup>|N|N|**N**|
-|[`layerDefinition`](https://developers.arcgis.com/web-map-specification/objects/layerDefinition/)|Filters|N|[Y](https://www.arcgis.com/sharing/rest/content/items/195e039565ee42fbbefbcc2708bc7e26/data?f=json)|[Y](https://geogeeks.maps.arcgis.com/sharing/rest/content/items/2ba230842b164b53acaa05df211c36de/data?f=json)|Y
-|[`popupInfo`](https://developers.arcgis.com/web-map-specification/objects/popupInfo/)|Popup templates|N|[Y](https://geogeeks.maps.arcgis.com/sharing/rest/content/items/195e039565ee42fbbefbcc2708bc7e26/data?f=json)|[Y](https://geogeeks.maps.arcgis.com/sharing/rest/content/items/2ba230842b164b53acaa05df211c36de/data?f=json)|Y
-|[`featureReduction`](https://developers.arcgis.com/web-map-specification/objects/featureReduction_cluster/)|Clusters|N|N|[Y](https://geogeeks.maps.arcgis.com/sharing/rest/content/items/8e3fd5a7427b48b3b293c586ff4b2301/data?f=json)|Y
-|[`baseMap`](https://developers.arcgis.com/web-map-specification/objects/baseMap/)|Background layers|N|N|[Y](https://geogeeks.maps.arcgis.com/sharing/rest/content/items/2ba230842b164b53acaa05df211c36de/data?f=json)|Y
-|[`opacity`](https://developers.arcgis.com/web-map-specification/objects/featureLayer/)|Transparency|N|N|[Y](https://geogeeks.maps.arcgis.com/sharing/rest/content/items/2ba230842b164b53acaa05df211c36de/data?f=json)|Y
-|[`bookmarks`](https://developers.arcgis.com/web-map-specification/objects/bookmark/)|Map locations|N|N|[Y](https://geogeeks.maps.arcgis.com/sharing/rest/content/items/2ba230842b164b53acaa05df211c36de/data?f=json)|Y
+|[`layerDefinition`](https://developers.arcgis.com/web-map-specification/objects/layerDefinition/)|Filters|N|[Y](https://www.arcgis.com/sharing/rest/content/items/195e039565ee42fbbefbcc2708bc7e26/data?f=json)|[Y](https://www.arcgis.com/sharing/rest/content/items/c1354b360f3d4d709220f134f10b744a/data?f=json)|Y
+|[`popupInfo`](https://developers.arcgis.com/web-map-specification/objects/popupInfo/)|Popup templates|N|[Y](https://www.arcgis.com/sharing/rest/content/items/195e039565ee42fbbefbcc2708bc7e26/data?f=json)|[Y](https://www.arcgis.com/sharing/rest/content/items/c1354b360f3d4d709220f134f10b744a/data?f=json)|Y
+|[`featureReduction`](https://developers.arcgis.com/web-map-specification/objects/featureReduction_cluster/)|Clusters|N|N|[Y](https://www.arcgis.com/sharing/rest/content/items/8e3fd5a7427b48b3b293c586ff4b2301/data?f=json)|Y
+|[`baseMap`](https://developers.arcgis.com/web-map-specification/objects/baseMap/)|Background layers|N|N|[Y](https://www.arcgis.com/sharing/rest/content/items/c1354b360f3d4d709220f134f10b744a/data?f=json)|Y
+|[`opacity`](https://developers.arcgis.com/web-map-specification/objects/featureLayer/)|Transparency|N|N|[Y](https://www.arcgis.com/sharing/rest/content/items/c1354b360f3d4d709220f134f10b744a/data?f=json)|Y
+|[`bookmarks`](https://developers.arcgis.com/web-map-specification/objects/bookmark/)|Map locations|N|N|[Y](https://www.arcgis.com/sharing/rest/content/items/c1354b360f3d4d709220f134f10b744a/data?f=json)|Y
 |...|...|...|...|...|...
 
 **Notes:**
@@ -70,7 +70,7 @@ In case the priority is defined in multiple levels, the first row indicates the 
 [The load layer demo](.feature-layer.html) shows how to load layer properties using the JavaScript API we just need to add the URL of the layer on the `FeatureLayer` class. 
 
 ```js
-featureLayer = new FeatureLayer({
+const featureLayer = new FeatureLayer({
     url: 'https://services.arcgis.com/P3ePLMYs2RVChkJx/arcgis/rest/services/ACS_Poverty_by_Age_Boundaries/FeatureServer/0'
 });
 
@@ -107,7 +107,7 @@ gotoExtent();
 The code looks like this:
 
 ```js
-Layer.fromPortalItem({
+const layer = Layer.fromPortalItem({
     portalItem: {
         id: "195e039565ee42fbbefbcc2708bc7e26"
     }
@@ -120,10 +120,60 @@ Layer.fromPortalItem({
 });
  ```
 
+ The extent saved in the item metadata is used to make the item searchable by location, not as an initial extent, but we could also use it:
+
+ ```js
+new PortalItem({
+    id: itemID
+})
+.load()
+.then(function(item){
+    view.goTo(item.extent);
+});
+```
+
 ### Overwrite previous Portal Item with web map properties
 
-Esse aliqua elit aliqua ad non qui nisi eu mollit ad.
+[The load web maps item demo](.webmap-item.html) shows how the [web map item properties](https://www.arcgis.com/sharing/rest/content/items/c1354b360f3d4d709220f134f10b744a/data?f=json) which references the previous [Portal Item](https://www.arcgis.com/home/item.html?id=195e039565ee42fbbefbcc2708bc7e26) will overwrite [its properties](https://www.arcgis.com/sharing/rest/content/items/195e039565ee42fbbefbcc2708bc7e26?f=json).
+
+```js
+const webmap = new WebMap({
+    portalItem: {
+        id: "c1354b360f3d4d709220f134f10b744a"
+    }
+});
+
+const view = new MapView({
+    map: webmap,
+    container: "viewDiv"
+});
+```
 
 ### Overwrite previous web map properties with custom code
 
-Esse aliqua elit aliqua ad non qui nisi eu mollit ad.
+[The custom app starting from a webmap demo](.custom-app.html) shows how to overwrite the [web map properties](https://www.arcgis.com/sharing/rest/content/items/c1354b360f3d4d709220f134f10b744a/data?f=json) using the properties and methods available in the JavaScript API.
+
+The following sample code shows how to overwrite the extent of the view using the [`extent` property](https://developers.arcgis.com/javascript/latest/api-reference/esri-views-MapView.html#properties-summary) in the [`MapView` class](https://developers.arcgis.com/javascript/latest/api-reference/esri-views-MapView.html):
+
+```js
+const webmap = new WebMap({
+    portalItem: {
+        id: "c1354b360f3d4d709220f134f10b744a"
+    }
+});
+
+const view = new MapView({
+    map: webmap,
+    container: "viewDiv",
+    extent: {
+        "spatialReference": {
+            "latestWkid": 3857,
+            "wkid": 102100
+        },
+        "xmin": -8244513.280543869,
+        "ymin": 4976904.837374379,
+        "xmax": -8224945.401302891,
+        "ymax": 4980736.243417169
+    }
+});
+```
