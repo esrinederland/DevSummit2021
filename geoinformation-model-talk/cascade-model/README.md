@@ -153,7 +153,7 @@ const view = new MapView({
 
 [The custom app starting from a webmap demo](.custom-app.html) shows how to overwrite the [web map properties](https://www.arcgis.com/sharing/rest/content/items/c1354b360f3d4d709220f134f10b744a/data?f=json) using the properties and methods available in the JavaScript API.
 
-The following sample code shows how to overwrite the extent of the view using the [`extent` property](https://developers.arcgis.com/javascript/latest/api-reference/esri-views-MapView.html#properties-summary) in the [`MapView` class](https://developers.arcgis.com/javascript/latest/api-reference/esri-views-MapView.html):
+The following sample code shows how to overwrite the extent of the view using the [`extent` property](https://developers.arcgis.com/javascript/latest/api-reference/esri-views-MapView.html#properties-summary) in the [`MapView` class](https://developers.arcgis.com/javascript/latest/api-reference/esri-views-MapView.html) and also de [`basemap` property](https://developers.arcgis.com/javascript/latest/api-reference/esri-Map.html#properties-summary) in the [`Map` class](https://developers.arcgis.com/javascript/latest/api-reference/esri-Map.html):
 
 ```js
 const webmap = new WebMap({
@@ -161,6 +161,8 @@ const webmap = new WebMap({
         id: "c1354b360f3d4d709220f134f10b744a"
     }
 });
+
+webmap.basemap = "streets-navigation-vector";
 
 const view = new MapView({
     map: webmap,
