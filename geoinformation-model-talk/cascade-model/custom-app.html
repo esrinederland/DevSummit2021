@@ -36,6 +36,20 @@
                 "ymax": 4973836.356302207
               }
             });
+
+            view.when(function(){
+                webmap.allLayers.getItemAt(1).renderer = {
+                    type: "simple",
+                    symbol: {
+                        type: "simple-fill",
+                        style: "diagonal-cross",
+                        outline: {
+                            style: "dot"
+                        }
+                    }
+                };
+            });
+
           });
         </script>
   </head>
