@@ -209,3 +209,10 @@ webmap.when(function(){
     webmap.allLayers.getItemAt(1).renderer = renderer
 });
 ```
+
+## Other cool talks
+
+About 2D and 3D visualizations with the ArcGIS API for JavaScript:
+
+* [ArcGIS API for JavaScript: 2D Visualization](https://www.youtube.com/watch?v=IJMhAXil9i4)
+* [3D Visualization with the ArcGIS API for JavaScript](https://www.youtube.com/watch?v=41TCvZWiFl0)
