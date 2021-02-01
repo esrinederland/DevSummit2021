@@ -38,16 +38,12 @@
             });
 
             webmap.when(function(){
-                webmap.allLayers.getItemAt(1).renderer = {
-                    type: "simple",
-                    symbol: {
-                        type: "simple-fill",
-                        style: "diagonal-cross",
-                        outline: {
-                            style: "dot"
-                        }
-                    }
-                };
+                let renderer = webmap.allLayers.getItemAt(1).renderer;
+
+                // Changing colors: reducing the amount of red to a half
+                renderer.visualVariables[0].stops = renderer.visualVariables[0].stops.map(el => el.color.r  = parseInt((el.color.r / 2)))
+
+                webmap.allLayers.getItemAt(1).renderer = renderer
             });
 
           });

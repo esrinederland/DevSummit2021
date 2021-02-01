@@ -183,7 +183,7 @@ const view = new MapView({
     }
 });
 
-view.when(function(){
+webmap.when(function(){
     webmap.allLayers.getItemAt(1).renderer = {
         type: "simple",
         symbol: {
@@ -194,5 +194,18 @@ view.when(function(){
             }
         }
     };
+});
+```
+
+Or as we can see in [the second custom app sample](custom-app-2.html), instead of fully replacing the renderer we could also modify it a little bit:
+
+```js
+webmap.when(function(){
+    let renderer = webmap.allLayers.getItemAt(1).renderer;
+
+    // Changing colors: reducing the amount of red to a half
+    renderer.visualVariables[0].stops = renderer.visualVariables[0].stops.map(el => el.color.r  = parseInt((el.color.r / 2)))
+
+    webmap.allLayers.getItemAt(1).renderer = renderer
 });
 ```
