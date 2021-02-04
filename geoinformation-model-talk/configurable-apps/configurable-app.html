@@ -13,7 +13,7 @@
               appTitle = document.getElementById('title');
 
         if(!urlParams.has('appid')){
-            appTitle.innerText = 'Instance can not be loaded, appid param not present';
+            appTitle.innerText = 'Instance can not be loaded, `appid` param is not present';
         }else{
             const itemEndpoint = `https://www.arcgis.com/sharing/rest/content/items/${urlParams.get('appid')}/data?f=json'`;
 
