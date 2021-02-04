@@ -9,21 +9,24 @@
     <h1 id="title"></h1>
 
     <script>
-        var urlParams = new URLSearchParams(window.location.search);
+        const urlParams = new URLSearchParams(window.location.search),
+              appTitle = document.getElementById('title');
+
         if(!urlParams.has('appid')){
-            document.getElementById('title').innerText = "Instance can not be loaded, appid param not present";
+            appTitle.innerText = 'Instance can not be loaded, appid param not present';
         }else{
             const itemEndpoint = `https://www.arcgis.com/sharing/rest/content/items/${urlParams.get('appid')}/data?f=json'`;
+
             fetch(itemEndpoint)
                 .then(response => {
                     if (response.status !== 200) {
                         console.error(response.status);
-                        document.getElementById('title').innerText = `Error: ${response.status}`;
+                        appTitle.innerText = `Error: ${response.status}`;
                         return;
                     }
 
                     response.json().then(function(data) {
-                        document.getElementById('title').innerText = data.values.title
+                        appTitle.innerText = data.values.title;
                     });
                 });
         }
