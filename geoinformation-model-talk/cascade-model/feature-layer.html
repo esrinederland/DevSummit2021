@@ -7,64 +7,58 @@
     <style>html,body,#viewDiv{padding:0;margin:0;height:100%;width:100%}</style>
     <link rel="stylesheet" href="https://js.arcgis.com/4.18/esri/themes/light/main.css" />
     <script src="https://js.arcgis.com/4.18/"></script>
-
-    <script>
-
-        require([
-            "esri/Map",
-            "esri/views/MapView",
-            "esri/layers/FeatureLayer"
-        ], function (Map, MapView, FeatureLayer) {
-
-            map = new Map({
-                basemap: "dark-gray"
-            });
-
-            const serviceUrl = 'https://services.arcgis.com/P3ePLMYs2RVChkJx/arcgis/rest/services/ACS_Poverty_by_Age_Boundaries/FeatureServer',
-                  povertyLayers = {
-                      'state': `${serviceUrl}/0`,
-                      'county': `${serviceUrl}/1`,
-                      'tract': `${serviceUrl}/2`,
-                  };
-
-            // Loading drawingInfo from a specific layer
-            // the visibility is also recovered from the service spec.
-            featureLayer = new FeatureLayer({
-                url: povertyLayers['state']
-                // if the layer id (/0, /1, ...) is not specified
-                //then the first layer will be loaded
-            });
-
-            map.add(featureLayer);
-
-            view = new MapView({
-                container: "viewDiv",
-                map: map
-            });
-
-            const gotoExtent = async function(){
-                // Recover layer extent from the expect
-                const getExtent = featureLayer
-                                  .queryExtent()
-                                  .then(response => response.extent);
-
-                const mapReady = view.when();
-
-                Promise.all([getExtent, mapReady]).then(values =>{
-                    view.goTo(values[0]).catch(function (error) {
-                        if (error.name != "AbortError") {
-                            console.error(error);
-                        }
-                    });
-                })
-            }
-            gotoExtent();
-
-        });
-    </script>
 </head>
 
 <body>
+    <script type="module">
+
+        import ArcGISMap from "https://js.arcgis.com/4.18/@arcgis/core/Map.js";
+        import MapView from "https://js.arcgis.com/4.18/@arcgis/core/views/MapView.js";
+        import FeatureLayer from "https://js.arcgis.com/4.18/@arcgis/core/layers/FeatureLayer.js";
+
+        const map = new ArcGISMap({
+            basemap: "dark-gray"
+        });
+
+        const serviceUrl = 'https://services.arcgis.com/P3ePLMYs2RVChkJx/arcgis/rest/services/ACS_Poverty_by_Age_Boundaries/FeatureServer',
+                povertyLayers = {
+                    'state': `${serviceUrl}/0`,
+                    'county': `${serviceUrl}/1`,
+                    'tract': `${serviceUrl}/2`,
+                };
+        // Loading drawingInfo from a specific layer
+        // the visibility is also recovered from the service spec.
+        const featureLayer = new FeatureLayer({
+            url: povertyLayers['state']
+            // if the layer id (/0, /1, ...) is not specified
+            //then the first layer will be loaded
+        });
+
+        map.add(featureLayer);
+
+        const view = new MapView({
+            container: "viewDiv",
+            map: map
+        });
+
+        const gotoExtent = async function(){
+            // Recover layer extent from the expect
+            const getExtent = featureLayer
+                                .queryExtent()
+                                .then(response => response.extent);
+
+            const mapReady = view.when();
+
+            Promise.all([getExtent, mapReady]).then(values =>{
+                view.goTo(values[0]).catch(function (error) {
+                    if (error.name != "AbortError") {
+                        console.error(error);
+                    }
+                });
+            })
+        }
+        gotoExtent();
+    </script>
     <div id="viewDiv"></div>
 </body>
 </html>

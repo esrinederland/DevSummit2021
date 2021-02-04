@@ -8,50 +8,48 @@
     <link rel="stylesheet" href="https://js.arcgis.com/4.18/esri/themes/light/main.css"/>
     <script src="https://js.arcgis.com/4.18/"></script>
 
-    <script>
+    <script type="module">
 
-        require([
-        "esri/Map",
-        "esri/views/MapView",
-        "esri/layers/Layer",
-        "esri/portal/PortalItem"
-        ], function (Map, MapView, Layer, PortalItem) {
+        import ArcGISMap from "https://js.arcgis.com/4.18/@arcgis/core/Map.js";
+        import MapView from "https://js.arcgis.com/4.18/@arcgis/core/views/MapView.js";
+        import Layer from "https://js.arcgis.com/4.18/@arcgis/core/layers/Layer.js";
+        import PortalItem from "https://js.arcgis.com/4.18/@arcgis/core/portal/PortalItem.js";
 
-            map = new Map({
-                basemap: "gray"
-            });
+        const map = new ArcGISMap({
+            basemap: "gray"
+        });
 
-            view = new MapView({
-                container: "viewDiv",
-                map: map
-            });
+        const view = new MapView({
+            container: "viewDiv",
+            map: map
+        });
 
-            const itemID = "195e039565ee42fbbefbcc2708bc7e26";
-            console.log(`Loading Feature Layer Item Type\nDetails page: https://www.arcgis.com/home/item.html?id=${itemID}`);
+        const itemID = "195e039565ee42fbbefbcc2708bc7e26";
+        console.log(`Loading Feature Layer Item Type\nDetails page: https://www.arcgis.com/home/item.html?id=${itemID}`);
 
-            Layer.fromPortalItem({
-                portalItem: {
-                    id: itemID
-                }
-            })
+        Layer.fromPortalItem({
+            portalItem: {
+                id: itemID
+            }
+        })
             .then(layer => {
-                map.add(layer);
+            map.add(layer);
             })
             .catch(error => {
-                console.log("Layer failed to load: ", error);
+            console.log("Layer failed to load: ", error);
             });
 
-            // The extent saved in the item metadata is used
-            // to make the item searchable by location, not
-            // as an initial extent, but we could also use it
-            new PortalItem({
-                id: itemID
-            })
+        // The extent saved in the item metadata is used
+        // to make the item searchable by location, not
+        // as an initial extent, but we could also use it
+        new PortalItem({
+            id: itemID
+        })
             .load()
             .then(function(item){
                 view.goTo(item.extent);
             });
-        });
+
     </script>
 </head>
 

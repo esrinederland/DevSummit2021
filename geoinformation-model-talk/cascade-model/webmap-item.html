@@ -8,13 +8,12 @@
     <link rel="stylesheet" href="https://js.arcgis.com/4.18/esri/themes/light/main.css"/>
     <script src="https://js.arcgis.com/4.18/"></script>
 
-    <script>
-    require([
-        "esri/views/MapView",
-        "esri/WebMap"
-      ], function (MapView, WebMap) {
+    <script type="module">
 
-        webmap = new WebMap({
+        import MapView from "https://js.arcgis.com/4.18/@arcgis/core/views/MapView.js";
+        import WebMap from "https://js.arcgis.com/4.18/@arcgis/core/WebMap.js";
+
+        const webmap = new WebMap({
           portalItem: {
             id: "c1354b360f3d4d709220f134f10b744a"
           }
@@ -24,7 +23,7 @@
           map: webmap,
           container: "viewDiv"
         });
-      });
+
     </script>
   </head>
 

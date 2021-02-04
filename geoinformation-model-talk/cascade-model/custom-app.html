@@ -8,24 +8,24 @@
     <link rel="stylesheet" href="https://js.arcgis.com/4.18/esri/themes/light/main.css"/>
     <script src="https://js.arcgis.com/4.18/"></script>
 
-    <script>
-        require([
-            "esri/views/MapView",
-            "esri/WebMap"
-          ], function (MapView, WebMap) {
 
-            webmap = new WebMap({
-              portalItem: {
-                id: "c1354b360f3d4d709220f134f10b744a"
-              }
-            });
+    <script type="module">
 
-            webmap.basemap = "streets-navigation-vector";
+        import MapView from "https://js.arcgis.com/4.18/@arcgis/core/views/MapView.js";
+        import WebMap from "https://js.arcgis.com/4.18/@arcgis/core/WebMap.js";
 
-            view = new MapView({
-              map: webmap,
-              container: "viewDiv",
-              extent: {
+        const webmap = new WebMap({
+            portalItem: {
+            id: "c1354b360f3d4d709220f134f10b744a"
+            }
+        });
+
+        webmap.basemap = "streets-navigation-vector";
+
+        const view = new MapView({
+            map: webmap,
+            container: "viewDiv",
+            extent: {
                 "spatialReference": {
                     "latestWkid": 3857,
                     "wkid": 102100
@@ -34,23 +34,22 @@
                 "ymin": 4966727.712671695,
                 "xmax": -8228584.368497199,
                 "ymax": 4973836.356302207
-              }
-            });
+            }
+        });
 
-            webmap.when(function(){
-                webmap.allLayers.getItemAt(1).renderer = {
-                    type: "simple",
-                    symbol: {
-                        type: "simple-fill",
-                        style: "diagonal-cross",
-                        outline: {
-                            style: "dot"
-                        }
+        webmap.when(function(){
+            webmap.allLayers.getItemAt(1).renderer = {
+                type: "simple",
+                symbol: {
+                    type: "simple-fill",
+                    style: "diagonal-cross",
+                    outline: {
+                        style: "dot"
                     }
-                };
-            });
+                }
+            };
+        });
 
-          });
         </script>
   </head>
 
