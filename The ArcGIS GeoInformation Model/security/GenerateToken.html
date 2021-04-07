@@ -1,0 +1,85 @@
+<!doctype html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <title>Generate a token</title>
+    <!-- get calcite-web css from the cdn (use latest version) -->
+    <link rel="stylesheet" href="https://s3-us-west-1.amazonaws.com/patterns.esri.com/files/calcite-web/1.2.5/css/calcite-web.min.css">
+    <link rel="stylesheet" href="https://js.arcgis.com/4.16/esri/themes/light/main.css">
+    <style>
+      html,body
+      {
+        height:100%;
+
+      }
+      #header
+      {
+        height:60px;
+        padding:10px 0px 0px 15px;
+
+
+      }
+      #bodywrapper
+      {
+        display:block;
+        height: 100%;
+      }
+      #sidepanel
+      {
+        padding:10px;
+        /* background-color: #FF9300; */
+        width:300px;
+
+      }
+
+    </style>
+    <script src="https://s3-us-west-1.amazonaws.com/patterns.esri.com/files/calcite-web/1.2.5/js/calcite-web.min.js"></script>
+   
+  </head>
+  <body>
+   
+      <!-- header -->
+    <div id="header" class="panel-dark-blue"><h2>GenerateToken</h2></div>
+
+      <!-- content of page -->
+      <div id="bodywrapper"> 
+        <div id="sidepanel" class="panel">
+          <form action="https://www.arcgis.com/sharing/generateToken" method="POST">
+          <label>
+            Username
+            <input type="text" name="username" placeholder="username" value="mvanhulzen_esrinl">
+          </label>
+          <label>
+            Password
+            <input type="password" name="password" placeholder="password">
+          </label>
+          <label>
+            Referer
+            <input type="text" name="referer" value="https://localhost" />
+          </label>
+          <div style="text-align: right;">
+            <input type="submit" class="btn" value="generate">
+          </div>
+          <input type="hidden" name="f" value="pjson" />
+          <input type="hidden" name="expiration" value="60" />
+         
+          </form>
+        </div>
+      
+       
+      </div>
+    
+    <div class="footer" role="contentinfo">
+      <!-- content of footer --><div class="esri-logo"></div>
+    </div>
+
+    <!-- get calcite-web js from the cdn (use latest version) -->
+    
+
+    <!-- interactive patterns need to be initialized -->
+    <script>
+       calcite.init()
+    </script>
+  </body>
+</html>
