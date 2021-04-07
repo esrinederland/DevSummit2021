@@ -1,4 +1,4 @@
-![Banner](https://raw.githubusercontent.com/esrinederland/esrinederland.github.io/master/images/DS21-DevSum_Banner.png)
+![Banner](https://github.com/esrinederland/esrinederland.github.io/blob/master/images/DS21-DevSum_Banner.png)
 #DevSummit2021
 Links to the session specific folders:
 
