@@ -1,0 +1,139 @@
+<!doctype html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <title>Show me the groupies</title>
+    <!-- get calcite-web css from the cdn (use latest version) -->
+    <link rel="stylesheet" href="https://s3-us-west-1.amazonaws.com/patterns.esri.com/files/calcite-web/1.2.5/css/calcite-web.min.css">
+    <link rel="stylesheet" href="https://js.arcgis.com/4.16/esri/themes/light/main.css">
+    <style>
+      html,body
+      {
+        height:100%;
+
+      }
+      #header
+      {
+        height:60px;
+        padding:10px 0px 0px 15px;
+
+
+      }
+      #bodywrapper
+      {
+        display:block;
+        height: 100%;
+      }
+      #sidepanel
+      {
+        padding:10px;
+        /* background-color: #FF9300; */
+        width:300px;
+        float:left;
+       
+
+      }
+      #resultpanel
+      {
+        float:left;
+        margin-left:5px;
+        background-color:#FFF;
+      }
+
+      .grouppanel
+      {
+          
+          margin-bottom:4px;
+      }
+
+    </style>
+    <script src="https://s3-us-west-1.amazonaws.com/patterns.esri.com/files/calcite-web/1.2.5/js/calcite-web.min.js"></script>
+    <script src="https://js.arcgis.com/4.16/"></script>
+    <script>
+      require([
+      "esri/request",
+      "dojo/on"
+      ], function(esriRequest,on) {
+        var btnShow = document.getElementById("btnShow");
+        var resultpanel = document.getElementById("resultpanel")
+        var txttoken = document.getElementById("txttoken");
+        on(btnShow,"click",()=>{
+            var searchUrl = "https://www.arcgis.com/sharing/rest/community/groups"
+            var params = {}
+            params["f"] = "json";
+            params["q"] = "owner:mvanhulzen_esrinl AND tags:'DevSummit2021'";
+            params["sortField"] = "created"
+            tokenpart = ""
+            if(txttoken.value)
+            {
+              params["token"] = txttoken.value;
+              tokenpart = "?token=" + txttoken.value
+            }
+
+            esriRequest(searchUrl, {
+              responseType: "json",
+              method:"post",
+              query:params,
+              authMode:"anonymous"
+            }).then(function(response){
+              // The requested data
+              var geoJson = response.data;
+              
+              var newcontent = "";
+              geoJson.results.forEach(group => {
+                newcontent += "<div class='panel grouppanel'>"+
+                              "<img src='https://www.arcgis.com/sharing/rest/community/groups/" + group.id + "/info/" + group.thumbnail + tokenpart+"'/>"+
+                              "<h2>" + group.title + "</h2>" + group.description + 
+                              "</div>"
+              });
+              resultpanel.innerHTML = newcontent;
+            }).catch(function(error) {
+              resultpanel.innerHTML = "<div class='alert alert-red is-active'>" + error + "</div>";
+            });
+
+        });
+
+      });
+    </script>
+  </head>
+  <body>
+   
+      <!-- header -->
+    <div id="header" class="panel-dark-blue"><h2>Show me the groupies</h2></div>
+
+      <!-- content of page -->
+      <div id="bodywrapper"> 
+        <div id="sidepanel" class="panel">
+          
+          <label>
+            Token
+            <input type="text" id="txttoken" placeholder="<<token>>">
+          </label>
+         
+          <div style="text-align: right;">
+            <input type="button" id="btnShow" class="btn" value="Show">
+          </div>
+      
+         
+          </form>
+        </div>
+        <div id="resultpanel">
+          
+        </div>
+       
+      </div>
+    
+    <div class="footer" role="contentinfo">
+      <!-- content of footer --><div class="esri-logo"></div>
+    </div>
+
+    <!-- get calcite-web js from the cdn (use latest version) -->
+    
+
+    <!-- interactive patterns need to be initialized -->
+    <script>
+       calcite.init()
+    </script>
+  </body>
+</html>
