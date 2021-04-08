@@ -6,4 +6,4 @@
 * [Deep learning in Raster Analysis](https://enterprise.arcgis.com/en/portal/latest/use/deep-learning-in-raster-analysis.htm)
 * Geoprocessing Services [Documentation](https://enterprise.arcgis.com/en/server/latest/publish-services/windows/what-is-a-geoprocessing-service-.htm)
 
-If you need anything else do not hesitate on opening an issue.
+If you need anything else do not hesitate to contact us.
